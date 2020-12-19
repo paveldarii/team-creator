@@ -1,0 +1,27 @@
+{
+  "name": "team-creator",
+  "version": "1.0.0",
+  "description": "This app is a template for creating the profile of each individual of a team with email address or occupation. Then, the introduced info is displayed in the browser.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paveldarii/team-creator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paveldarii/team-creator/issues"
+  },
+  "homepage": "https://github.com/paveldarii/team-creator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "jest": "^26.6.3"
+  }
+}
