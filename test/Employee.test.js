@@ -19,7 +19,7 @@ describe("Employee class", () => {
     expect(employee.getEmail()).toBe("pd@yahoo.com");
   });
 
-  it("getName should return Employee", () => {
+  it("getRole should return Employee", () => {
     const employee = new Employee("Pavel", 1, "pd@yahoo.com");
     expect(employee.getRole()).toEqual("Employee");
   });

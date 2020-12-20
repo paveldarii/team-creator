@@ -7,7 +7,7 @@ describe("Manager class", () => {
     expect(manager.getOfficeNumber()).toBe(2);
   });
 
-  it("getName should return Engineer", () => {
+  it("getRole should return Manager", () => {
     const manager = new Manager("Pavel", 1, "pd@yahoo.com", "pd");
 
     expect(manager.getRole()).toEqual("Manager");
