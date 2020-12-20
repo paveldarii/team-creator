@@ -1,3 +1,7 @@
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
@@ -39,7 +43,11 @@ const getEmployeeData = () => {
               message: "What is the manager's office number?",
             },
           ])
-          .then((response) => console.log(response));
+          .then((response) => {
+            managerList.push(
+              new Manager(response.name, response.email, response.office)
+            );
+          });
 
         break;
       case "Engineer":
@@ -57,11 +65,15 @@ const getEmployeeData = () => {
             },
             {
               type: "input",
-              name: "office",
+              name: "github",
               message: "What is the engineer's GitHub username?",
             },
           ])
-          .then((response) => {});
+          .then((response) => {
+            engineerList.push(
+              new Engineer(response.name, response.email, response.github)
+            );
+          });
         break;
       case "Intern":
         inquirer
@@ -78,11 +90,15 @@ const getEmployeeData = () => {
             },
             {
               type: "input",
-              name: "office",
+              name: "school",
               message: "What is the intern's school name?",
             },
           ])
-          .then((response) => {});
+          .then((response) => {
+            internList.push(
+              new Intern(response.name, response.email, response.school)
+            );
+          });
         break;
       case "Other":
         inquirer
@@ -98,7 +114,9 @@ const getEmployeeData = () => {
               message: "What is the employee's email address?",
             },
           ])
-          .then((response) => {});
+          .then((response) => {
+            otherEmployeeList.push(new Employee(response.name, response.email));
+          });
         break;
       default:
         console.log("no answer for you");
