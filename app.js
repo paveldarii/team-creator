@@ -17,6 +17,7 @@ const promptUser = () =>
       // What is employee's role in the team? Enter one of the numbers above.`,
     },
   ]);
+var hasMoreEmployee = true;
 const managerList = [];
 const engineerList = [];
 const internList = [];
@@ -25,7 +26,7 @@ const getEmployeeData = () => {
   promptUser().then((response) => {
     switch (response.role) {
       case "Manager":
-        inquirer
+        return inquirer
           .prompt([
             {
               type: "input",
@@ -42,16 +43,26 @@ const getEmployeeData = () => {
               name: "office",
               message: "What is the manager's office number?",
             },
+            {
+              type: "confirm",
+              name: "hasMoreTeammates",
+              message: "Do you have more team mates that you want to add?",
+            },
           ])
           .then((response) => {
+            hasMoreEmployee = response.hasMoreTeammates;
             managerList.push(
               new Manager(response.name, response.email, response.office)
             );
+            if (hasMoreEmployee) {
+              getEmployeeData();
+            } else {
+              generateHtmlFile();
+            }
           });
 
-        break;
       case "Engineer":
-        inquirer
+        return inquirer
           .prompt([
             {
               type: "input",
@@ -68,15 +79,26 @@ const getEmployeeData = () => {
               name: "github",
               message: "What is the engineer's GitHub username?",
             },
+            {
+              type: "confirm",
+              name: "hasMoreTeammates",
+              message: "Do you have more team mates that you want to add?",
+            },
           ])
           .then((response) => {
+            hasMoreEmployee = response.hasMoreTeammates;
             engineerList.push(
               new Engineer(response.name, response.email, response.github)
             );
+            if (hasMoreEmployee) {
+              getEmployeeData();
+            } else {
+              generateHtmlFile();
+            }
           });
-        break;
+
       case "Intern":
-        inquirer
+        return inquirer
           .prompt([
             {
               type: "input",
@@ -93,15 +115,26 @@ const getEmployeeData = () => {
               name: "school",
               message: "What is the intern's school name?",
             },
+            {
+              type: "confirm",
+              name: "hasMoreTeammates",
+              message: "Do you have more team mates that you want to add?",
+            },
           ])
           .then((response) => {
+            hasMoreEmployee = response.hasMoreTeammates;
             internList.push(
               new Intern(response.name, response.email, response.school)
             );
+            if (hasMoreEmployee) {
+              getEmployeeData();
+            } else {
+              generateHtmlFile();
+            }
           });
-        break;
+
       case "Other":
-        inquirer
+        return inquirer
           .prompt([
             {
               type: "input",
@@ -113,11 +146,22 @@ const getEmployeeData = () => {
               name: "email",
               message: "What is the employee's email address?",
             },
+            {
+              type: "confirm",
+              name: "hasMoreTeammates",
+              message: "Do you have more team mates that you want to add?",
+            },
           ])
           .then((response) => {
+            hasMoreEmployee = response.hasMoreTeammates;
             otherEmployeeList.push(new Employee(response.name, response.email));
+            if (hasMoreEmployee) {
+              getEmployeeData();
+            } else {
+              generateHtmlFile();
+            }
           });
-        break;
+
       default:
         console.log("no answer for you");
     }
@@ -125,6 +169,23 @@ const getEmployeeData = () => {
 };
 getEmployeeData();
 
+generateHtmlFile = () => {
+  generateEmployeeHTMLSections = () => {
+    allEmployeeList = [
+      managerList,
+      engineerList,
+      internList,
+      otherEmployeeList,
+    ];
+    for (let i = 0; i < employeeTypeList.length; i++) {
+      if (allEmployeeList[i].length > 0) {
+        for (let j = 0; j < allEmployeeList[i].length; j++) {
+          teamMember = allEmployeeList[i][j];
+        }
+      }
+    }
+  };
+};
 // const generateHTML = (answers) =>
 //   `<!DOCTYPE html>
 // <html lang="en">
