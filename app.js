@@ -171,41 +171,91 @@ getEmployeeData();
 
 generateHtmlFile = () => {
   generateEmployeeHTMLSections = () => {
-    allEmployeeList = [
+    var allEmployeeList = [
       managerList,
       engineerList,
       internList,
       otherEmployeeList,
     ];
-    for (let i = 0; i < employeeTypeList.length; i++) {
+    var allSections = "";
+
+    for (let i = 0; i < allEmployeeList.length; i++) {
       if (allEmployeeList[i].length > 0) {
         for (let j = 0; j < allEmployeeList[i].length; j++) {
           teamMember = allEmployeeList[i][j];
+          //code bellow returns the generated sections for each employee
+          section = teamMember.generateSection();
+          allSections += section;
         }
+      } else {
+        continue;
       }
     }
+    return allSections;
   };
-};
-// const generateHTML = (answers) =>
-//   `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   <meta charset="UTF-8">
-//   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-//   <title>Document</title>
-// </head>
-// <body>
-//   <div class="jumbotron jumbotron-fluid">
-//   <div class="container">
-//   </div>
-// </div>
-// </body>
-// </html>`;
+  const generatedHTMLFile = `
+  <!DOCTYPE html>
+<html lang="en">
 
-// promptUser()
-//   .then((answers) =>
-//     writeFileAsync("generated-html-file/index.html", generateHTML(answers))
-//   )
-//   .then(() => console.log("Successfully wrote to index.html"))
-//   .catch((err) => console.error(err));
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    h1 {
+      text-align: center;
+      background-color: #282365;
+      padding: 20px;
+      color: #309ed7;
+    }
+
+    h4,
+    h5 {
+      margin: 0;
+      background-color: #224b89;
+      color: #309ed7;
+      text-align: center;
+      padding-left: 5%;
+    }
+
+    h4 {
+      border-radius: 15px 15px 0px 0px;
+    }
+
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .col,
+    .col-md-5,
+    .col-lg-4 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    body {
+      background-image: url("background.jpg");
+      background-size: 100%;
+    }
+  </style>
+  <title>My-team</title>
+</head>
+
+<body style="background-image: url('background.jpg'),background-size 100%">
+  <h1> My team</h1>
+  <div class="container">
+    <div class="row">
+      ${generateEmployeeHTMLSections()}
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
+  `;
+  writeFileAsync("generated-html-file/index.html", generatedHTMLFile)
+    .then(() => console.log("Successfully wrote to index.html"))
+    .catch((err) => console.error(err));
+};
