@@ -2,17 +2,17 @@
 
 ## Table Of Contents
 
-1. [License](#license)
+1. [Description](#description)
 
-2. [Description](#description)
+2. [Installation](#installation)
 
-3. [Installation](#installation)
+3. [Usage](#usage)
 
-4. [Usage](#usage)
+4. [Testing](#testing)
 
-5. [Testing](#testing)
+5. [Questions](#questions)
 
-6. [Questions](#questions)
+6. [License](#license)
 
 ## Description
 
@@ -20,7 +20,7 @@ The project is designed for usage by programmers who just got a new job and want
 ![my team site](screenshots/my-team.png)
 
 Folder structure is below.
-![Folder structure](screensots/folder-structure.png)
+![Folder structure](screenshots/folder-structure.png)
 
 ## Installation
 
