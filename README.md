@@ -17,9 +17,11 @@
 ## Description
 
 The project is designed for usage by programmers who just got a new job and wants to have all the contacts of his team members organized in one place.
+
 ![my team site](screenshots/my-team.png)
 
 Folder structure is below.
+
 ![Folder structure](screenshots/folder-structure.png)
 
 ## Installation
@@ -40,10 +42,10 @@ Congratulations, you just installed the app on you computer.
 
 ## Usage
 
-To start the application enter in the js folder; then, in the bash enter the next command:
+To start the application enter in the team-creator directory; then, run the next command;
 
 ```bash
-node index.js
+node app.js
 ```
 
 By answering the questions that just prompted out on your terminal, you will be able to create the profile for each of your team members.
