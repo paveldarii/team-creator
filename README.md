@@ -50,7 +50,7 @@ node app.js
 
 By answering the questions that just prompted out on your terminal, you will be able to create the profile for each of your team members.
 
-After you inserted all team members, answer no to the last question wether you need to add more team mates, and you will find that you just created a new index.html file in the folder named generated-html-file.
+After you inserted all team members, answer no to the last question wether you need to add more team mates, and you will find that you just created a new team.html file in the folder named output.
 
 ## Testing
 

@@ -254,7 +254,7 @@ generateHtmlFile = () => {
 
 </html>
   `;
-  writeFileAsync("generated-html-file/index.html", generatedHTMLFile)
+  writeFileAsync("output/team.html", generatedHTMLFile)
     .then(() => console.log("Successfully wrote to index.html"))
     .catch((err) => console.error(err));
 };
