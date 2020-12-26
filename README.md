@@ -52,6 +52,8 @@ By answering the questions that just prompted out on your terminal, you will be 
 
 After you inserted all team members, answer no to the last question wether you need to add more team mates, and you will find that you just created a new team.html file in the folder named output.
 
+[YouTube Demo](https://www.youtube.com/watch?v=WmWPVo9AvfI&t=66s)
+
 ## Testing
 
 Four javascript files that are located in lib folder are tested by the test applications located in test folder:

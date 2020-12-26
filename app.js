@@ -13,8 +13,6 @@ const promptUser = () =>
       type: "list",
       message: "What is employee's role in you team?",
       choices: ["Manager", "Engineer", "Intern", "Other"],
-      //       message: `
-      // What is employee's role in the team? Enter one of the numbers above.`,
     },
   ]);
 var hasMoreEmployee = true;
@@ -255,6 +253,8 @@ generateHtmlFile = () => {
 </html>
   `;
   writeFileAsync("output/team.html", generatedHTMLFile)
-    .then(() => console.log("Successfully wrote to index.html"))
+    .then(() =>
+      console.log("Successfully wrote to team.html in output folder.")
+    )
     .catch((err) => console.error(err));
 };
